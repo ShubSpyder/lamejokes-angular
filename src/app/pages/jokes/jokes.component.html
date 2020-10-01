@@ -1,0 +1,6 @@
+<div>
+	<app-search-jokes (searchChange)="getSearchTerm($event)"></app-search-jokes>
+	<li *ngFor = "let jokeData of allJokes">
+		<app-joke [joke]="jokeData.joke" [id]="jokeData.id"> </app-joke>
+	</li>
+</div>

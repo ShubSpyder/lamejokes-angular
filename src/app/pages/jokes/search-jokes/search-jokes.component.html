@@ -1,0 +1,11 @@
+<form (ngSubmit)="onSubmit()">
+  <span
+    ><img src="../../../../assets/icons/search.svg" alt="search icon" /><input
+      type="search"
+      name="search"
+      placeholder="Enter any word :D"
+      [(ngModel)]="searchText"
+  /></span>
+
+  <button type="submit">Search Jokes</button>
+</form>

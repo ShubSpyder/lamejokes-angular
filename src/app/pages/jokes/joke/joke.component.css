@@ -4,3 +4,7 @@
     margin: 1rem 0;
     cursor: pointer;
   }
+
+.joke:hover{
+  background: #dddccc;
+}

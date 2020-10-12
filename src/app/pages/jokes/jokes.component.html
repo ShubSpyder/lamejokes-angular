@@ -1,6 +1,12 @@
 <div>
-	<app-search-jokes (searchChange)="getSearchTerm($event)"></app-search-jokes>
-	<li *ngFor = "let jokeData of allJokes">
-		<app-joke [joke]="jokeData.joke" [id]="jokeData.id"> </app-joke>
-	</li>
+  <app-search-jokes (searchChange)="getSearchTerm($event)"></app-search-jokes>
+  <div class="loader" *ngIf="loading"></div>
+  <div *ngIf="jokesNotFound">
+	<p class="no-jokes">oops! No jokes matched for your search term</p>
+	<p class="no-jokes">Such Empty</p>
+  </div>
+
+  <li *ngFor="let jokeData of allJokes">
+    <app-joke [joke]="jokeData.joke" [id]="jokeData.id"> </app-joke>
+  </li>
 </div>

@@ -9,6 +9,8 @@ import { Router } from "@angular/router";
 })
 export class AppHeaderComponent implements OnInit {
 
+  homeIsActive: boolean = false;
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {

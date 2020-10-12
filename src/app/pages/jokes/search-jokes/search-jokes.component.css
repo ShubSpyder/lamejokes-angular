@@ -20,6 +20,7 @@ span input{
     padding: 0.5rem 0.7rem;
     border: none;
     font-size: 1rem;
+    height: 100%;
 }
 
 span input:focus{

@@ -1,8 +1,12 @@
 <header class="header">
   <h1 class="title">Lame Jokes</h1>
   <ul>
-    <li><a (click)="openHome()">Home</a></li>
+    <li><a (click)="openHome()" [ngClass]="{'homeActive': homeIsActive}">Home</a></li>
     <li><a (click)="openJokes()">Jokes</a></li>
     <li><a (click)="openAbout()">About</a></li>
   </ul>
 </header>
+
+<!-- <p [ngClass]>
+  The class is true
+</p> -->

@@ -9,7 +9,7 @@ export class JokeService {
 	params:object = {headers: {Accept: "application/json"}}
 
 	getJoke() {
-		const url = "https://icanhazdadjoke.com/search?page=3";
+		const url = "https://icanhazdadjoke.com/search?page=4";
 		return this.http.get(url, this.params).toPromise();
 	}
 

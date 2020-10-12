@@ -12,20 +12,39 @@ export class JokesComponent implements OnInit {
   allJokes: object[];
   constructor(private jokeService: JokeService) {}
   yoke: string = 'The fist said fish';
+  loading = true;
+  jokesNotFound = false;
 
   ngOnInit(): void {
     this.getAllJokes();
   }
 
-  getSearchTerm(evt){
+  getSearchTerm(evt) {
+    this.loading = true;
+    this.jokesNotFound = false;
     this.jokeService.searchJokes(evt).then((res) => {
       this.allJokes = JSON.parse(JSON.stringify(res)).results;
-      console.log(`searched jokee -> ${this.allJokes}`)
+      console.log('response on search ->', this.allJokes[0]);
+      // this.allJokes !== null
+      //   ? (this.loading = false)
+      //   : this.allJokes === []
+      //   ? (this.jokesNotFound = true)
+      //   : (this.loading = false);
+
+      if(this.allJokes !== null && this.allJokes[0] !== undefined){
+        this.loading = false;
+        this.jokesNotFound = false;
+      }
+      else if(this.allJokes[0] === undefined){
+        this.jokesNotFound = true;
+        this.loading = false;
+      }
     });
   }
-  getAllJokes(){
+  getAllJokes() {
     this.jokeService.getJoke().then((res) => {
       this.allJokes = JSON.parse(JSON.stringify(res)).results;
+      this.allJokes !== null ? (this.loading = false) : (this.loading = true);
     });
   }
 }

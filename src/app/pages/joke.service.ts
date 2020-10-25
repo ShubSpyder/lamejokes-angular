@@ -7,19 +7,22 @@ import { HttpClient } from "@angular/common/http";
 export class JokeService {
 	constructor(private http: HttpClient) {}
 	params:object = {headers: {Accept: "application/json"}}
+	baseUrl = "https://icanhazdadjoke.com/"
 
 	getJoke() {
-		const url = "https://icanhazdadjoke.com/search?page=4";
+		const randomNum = Math.random() * (25 - 4) + 4;
+		const pageNum = (Math.round(randomNum)).toString();
+		const url = `${this.baseUrl}search?page=${pageNum}`;
 		return this.http.get(url, this.params).toPromise();
 	}
 
 	getSpecificJoke(id){
-		const url = `https://icanhazdadjoke.com/j/${id}`;
+		const url = `${this.baseUrl}j/${id}`;
 		return this.http.get(url, this.params).toPromise();
 	}
 
 	searchJokes(term){
-		const url = `https://icanhazdadjoke.com/search?term=${term}`;
+		const url = `${this.baseUrl}search?term=${term}`;
 		return this.http.get(url, this.params).toPromise();
 
 	}
